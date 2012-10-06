@@ -14,5 +14,5 @@ block content
     var socket = io.connect('http://localhost:8080');
     socket.on('log_msg', function(data){
       console.log(data);
-      $('#log-msg').append(data + "<br/>");
+      $('#log-msg').append("<strong>"+data.date+"</strong>:&nbsp;&nbsp;&nbsp;" + data.data + "<br/>");
     });

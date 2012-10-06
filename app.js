@@ -45,7 +45,7 @@ var server = net.createServer(function(socket){
   socket.setEncoding('utf8');
   socket.on('data', function(data){
     //Push a new log message to the client app
-    io.sockets.emit('log_msg', data);
+    io.sockets.emit('log_msg', {date: new Date(), data:data});
     console.log('data = ' + data);
   });
 });

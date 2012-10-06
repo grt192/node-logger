@@ -1,0 +1,18 @@
+extends layout
+
+block other-imports
+  script(src="http://localhost:8080/socket.io/socket.io.js")
+  script(src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js")
+
+block content
+  h1= title
+  #log-msg
+    p 
+      strong Log Messages: Realtime
+      br   
+  script
+    var socket = io.connect('http://localhost:8080');
+    socket.on('log_msg', function(data){
+      console.log(data);
+      $('#log-msg').append(data + "<br/>");
+    });
